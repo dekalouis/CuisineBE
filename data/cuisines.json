@@ -19,7 +19,7 @@
         "createdAt": "5/19/2024",
         "updatedAt": "5/21/2024",
         "categoryId": 1,
-        "authorId": 5
+        "authorId": 1
     },
     {
         "id": 3,
@@ -29,7 +29,7 @@
         "imgUrl": "https://placecats.com/millie/300/150",
         "createdAt": "3/26/2024",
         "updatedAt": "9/9/2024",
-        "categoryId": 5,
+        "categoryId": 1,
         "authorId": 1
     },
     {
