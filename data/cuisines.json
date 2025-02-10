@@ -1,0 +1,57 @@
+[
+    {
+        "id": 1,
+        "name": "Margherita Pizza",
+        "description": "Classic pizza with tomato sauce, mozzarella cheese, and fresh basil.",
+        "price": 25000,
+        "imgUrl": "https://placecats.com/300/200",
+        "createdAt": "5/18/2024",
+        "updatedAt": "3/2/2024",
+        "categoryId": 1,
+        "authorId": 2
+    },
+    {
+        "id": 2,
+        "name": "Spaghetti Carbonara",
+        "description": "Traditional Italian pasta with eggs, cheese, pancetta, and pepper.",
+        "price": 25000,
+        "imgUrl": "https://placecats.com/neo/300/200",
+        "createdAt": "5/19/2024",
+        "updatedAt": "5/21/2024",
+        "categoryId": 1,
+        "authorId": 5
+    },
+    {
+        "id": 3,
+        "name": "Chicken Tikka Masala",
+        "description": "Grilled chicken cooked in a creamy tomato-based curry sauce.",
+        "price": 25000,
+        "imgUrl": "https://placecats.com/millie/300/150",
+        "createdAt": "3/26/2024",
+        "updatedAt": "9/9/2024",
+        "categoryId": 5,
+        "authorId": 1
+    },
+    {
+        "id": 4,
+        "name": "Sushi Platter",
+        "description": "An assortment of fresh sushi, including nigiri, maki, and sashimi.",
+        "price": 25000,
+        "imgUrl": "https://placecats.com/millie_neo/300/200",
+        "createdAt": "3/6/2024",
+        "updatedAt": "11/10/2024",
+        "categoryId": 2,
+        "authorId": 2
+    },
+    {
+        "id": 5,
+        "name": "Beef Burger",
+        "description": "Juicy beef patty with lettuce, tomato, cheese, and special sauce in a toasted bun.",
+        "price": 25000,
+        "imgUrl": "https://placecats.com/neo_banana/300/200",
+        "createdAt": "5/26/2024",
+        "updatedAt": "7/22/2024",
+        "categoryId": 1,
+        "authorId": 1
+    }
+]
