@@ -18,8 +18,8 @@ module.exports = (sequelize, DataTypes) => {
         type: DataTypes.STRING,
         allowNull: false,
         validate: {
-          notEmpty: { msg: "Category tidak boleh kosong." },
-          notNull: { msg: "Category tidak boleh kosong." },
+          notEmpty: { msg: "Category name tidak boleh kosong." },
+          notNull: { msg: "Category name tidak boleh kosong." },
         },
       },
     },
