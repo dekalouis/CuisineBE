@@ -12,17 +12,17 @@ Target:
 
 ### **REST API**
 
-- [ ] Membuat entitas utama (Create / POST)
+- [x] Membuat entitas utama (Create / POST)
 
-  - [ ] Endpoint ini akan menerima request body berdasar field-field di entitas utama sesuai [tema aplikasi](https://docs.google.com/document/d/1GZwh8OJGZZQVUuWE0Cr13iMA2lLNE9mMoHfrbmETEBs/edit#heading=h.mcqrsbt2auhv).
-  - [ ] Jika request berhasil, kembalikan response dengan 201 status code dan response body berupa object yang berisikan data baru yang berhasil di-input.
-  - [ ] Jika request gagal karena validasi tidak terpenuhi, kembalikan response dengan 400 status code dan response body berupa object yang berisikan validation errors.
-  - [ ] Jika request gagal karena kesalahan server, kembalikan response dengan 500 status code.
+  - [x] Endpoint ini akan menerima request body berdasar field-field di entitas utama sesuai [tema aplikasi](https://docs.google.com/document/d/1GZwh8OJGZZQVUuWE0Cr13iMA2lLNE9mMoHfrbmETEBs/edit#heading=h.mcqrsbt2auhv).
+  - [x] Jika request berhasil, kembalikan response dengan 201 status code dan response body berupa object yang berisikan data baru yang berhasil di-input.
+  - [x] Jika request gagal karena validasi tidak terpenuhi, kembalikan response dengan 400 status code dan response body berupa object yang berisikan validation errors.
+  - [x] Jika request gagal karena kesalahan server, kembalikan response dengan 500 status code.
 
-- [ ] Mengambil semua data entitas utama (Read / GET)
+- [x] Mengambil semua data entitas utama (Read / GET)
 
-  - [ ] Jika request berhasil, kembalikan response dengan 200 status code dan response body berupa array of objects yang berisikan semua data entitas utama include User sebagai pemilik data (tanpa menampilkan passwordnya).
-  - [ ] Jika request gagal, kembalikan response dengan 500 status code.
+  - [x] Jika request berhasil, kembalikan response dengan 200 status code dan response body berupa array of objects yang berisikan semua data entitas utama include User sebagai pemilik data (tanpa menampilkan passwordnya).
+  - [x] Jika request gagal, kembalikan response dengan 500 status code.
 
 - [ ] Mengambil detail entitas utama berdasar id (Read / GET)
 

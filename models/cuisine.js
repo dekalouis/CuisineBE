@@ -31,7 +31,18 @@ module.exports = (sequelize, DataTypes) => {
           notNull: { msg: "Deskripsi tidak boleh kosong" },
         },
       },
-      price: DataTypes.INTEGER,
+      price: {
+        type: DataTypes.INTEGER,
+        allowNull: false,
+        validate: {
+          notEmpty: { msg: "Harga tidak boleh kosong" },
+          notNull: { msg: "Harga tidak boleh kosong" },
+          min: {
+            args: [5000],
+            msg: "Harga minimal 5000 Rupiah.",
+          },
+        },
+      },
       imgUrl: DataTypes.STRING,
       categoryId: {
         type: DataTypes.INTEGER,
