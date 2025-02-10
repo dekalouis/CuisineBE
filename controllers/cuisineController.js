@@ -8,7 +8,7 @@ class CuisineController {
 
       res.status(201).json({
         data: newCuisine,
-        message: `Cuisine ${req.body.name} has been created`,
+        message: `Cuisine ${req.body.name} has been created.`,
       });
     } catch (err) {
       console.log(err);
@@ -50,7 +50,36 @@ class CuisineController {
 
   static async updateCuisineById(req, res) {
     try {
+      //validasi manual
+      if (!req.body.name) {
+        res.status(400).json({ message: "Nama cuisine diperlukan" });
+        return;
+      }
+      if (!req.body.description) {
+        res.status(400).json({ message: "Description diperlukan" });
+        return;
+      }
+      if (!req.body.price) {
+        res.status(400).json({ message: "Harga diperlukan" });
+        return;
+      }
+      if (!req.body.categoryId) {
+        res.status(400).json({ message: "Category diperlukan" });
+        return;
+      }
+      if (!req.body.authorId) {
+        res.status(400).json({ message: "Author diperlukan" });
+        return;
+      }
+      //validasi selesai
+
       const { id } = req.params;
+
+      if (!id) {
+        res.status(400).json({ message: "ID cuisine diperlukan" });
+        return;
+      }
+
       const cuisineById = await Cuisine.findByPk(id);
       if (!cuisineById) {
         res.status(404).json({ message: `Cuisine id:${id} not found.` });
@@ -59,7 +88,7 @@ class CuisineController {
       await cuisineById.update(req.body);
       //   console.log(cuisineById);
       //   res.status(200).json(cuisineById);
-      res.json({ message: `Cuisine ${cuisineById.name} updated.` });
+      res.json({ message: `Cuisine id:${cuisineById.id} updated.` });
     } catch (err) {
       console.log(err);
       //dikasih validasi lagi in case user iseng ngosongin wkwkwk
