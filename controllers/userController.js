@@ -33,12 +33,10 @@ class UserController {
 
       const { email, password } = req.body;
       if (!email) {
-        res.status(400).json({ message: "Email dibutuhkan" });
-        return;
+        throw { name: "Email dibutuhkan" };
       }
       if (!password) {
-        res.status(400).json({ message: "Password dibutuhkan" });
-        return;
+        throw { name: "Password dibutuhkan" };
       }
 
       //cari
@@ -47,14 +45,12 @@ class UserController {
       });
 
       if (!user) {
-        res.status(401).json({ message: "Email/Password salah" });
-        return;
+        throw { name: "InvalidPass/Email" };
       }
 
       const isValidPass = comparePassword(password, user.password);
       if (!isValidPass) {
-        res.status(401).json({ message: "Email/Password salah" });
-        return;
+        throw { name: "InvalidPass/Email" };
       }
 
       const access_token = signToken({ id: user.id });

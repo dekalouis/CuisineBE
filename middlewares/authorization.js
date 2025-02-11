@@ -4,7 +4,7 @@ const authorizationAdmin = (req, res, next) => {
     if (req.user.role === "Admin") {
       next();
     } else {
-      next({ name: "Forbidden", message: `Forbidden access!` });
+      next({ name: "Forbidden", message: `Forbidden Access!` });
     }
   } catch (err) {
     next(err);
