@@ -5,7 +5,7 @@ const jwt = require("jsonwebtoken");
 // console.log(token);
 
 function signToken(data) {
-  return jwt.sign(data, "secret_key");
+  return jwt.sign(data, process.env.JWT_SECRET_KEY);
 }
 
 // decoding
@@ -13,7 +13,7 @@ function signToken(data) {
 // console.log(decoded);
 
 function verifyToken(token) {
-  return jwt.verify(token, "secret_key");
+  return jwt.verify(token, process.env.JWT_SECRET_KEY);
 }
 
 module.exports = {
