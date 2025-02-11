@@ -3,7 +3,7 @@
     "id": 1,
     "username": "test",
     "email": "test@test.com",
-    "password": "test",
+    "password": "$2b$10$4I.qk.zbvggJAbaxM..qbOw.ZqUPr9Qz0qIdb5..OEV5W0.OkoTe6",
     "role": "Admin",
     "phoneNumber": "9679328724",
     "address": "Apt 1834"

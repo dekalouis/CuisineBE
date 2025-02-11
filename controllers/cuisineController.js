@@ -1,4 +1,4 @@
-const { Cuisine } = require("../models");
+const { Cuisine, User } = require("../models");
 
 class CuisineController {
   static async createCuisine(req, res) {
@@ -23,7 +23,14 @@ class CuisineController {
 
   static async getCuisine(req, res) {
     try {
-      const cuisines = await Cuisine.findAll();
+      const cuisines = await Cuisine.findAll({
+        include: [
+          {
+            model: User,
+            attributes: { exclude: ["password"] },
+          },
+        ],
+      });
       //   console.log(cuisines);
       res.status(200).json(cuisines);
     } catch (err) {
@@ -35,7 +42,14 @@ class CuisineController {
   static async getCuisineById(req, res) {
     try {
       const { id } = req.params;
-      const cuisineById = await Cuisine.findByPk(id);
+      const cuisineById = await Cuisine.findByPk(id, {
+        include: [
+          {
+            model: User,
+            attributes: { exclude: ["password"] },
+          },
+        ],
+      });
       if (!cuisineById) {
         res.status(404).json({ message: `Cuisine id:${id} not found.` });
         return;
@@ -113,6 +127,33 @@ class CuisineController {
       res
         .status(200)
         .json({ message: `Cuisine ${cuisineById.name} successfully deleted` });
+    } catch (err) {
+      console.log(err);
+      res.status(500).json({ message: `Internal Server Error.` });
+    }
+  }
+
+  static async getPublicCuisine(req, res) {
+    try {
+      const cuisines = await Cuisine.findAll();
+      //   console.log(cuisines);
+      res.status(200).json(cuisines);
+    } catch (err) {
+      console.log(err);
+      res.status(500).json({ message: `Internal Server Error.` });
+    }
+  }
+
+  static async getPublicCuisineById(req, res) {
+    try {
+      const { id } = req.params;
+      const cuisineById = await Cuisine.findByPk(id);
+      if (!cuisineById) {
+        res.status(404).json({ message: `Cuisine id:${id} not found.` });
+        return;
+      }
+
+      res.status(200).json(cuisineById);
     } catch (err) {
       console.log(err);
       res.status(500).json({ message: `Internal Server Error.` });
