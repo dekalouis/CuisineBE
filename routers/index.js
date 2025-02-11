@@ -38,7 +38,11 @@ router.put(
   authorizationAdmin,
   CuisineController.updateCuisineById
 );
-router.delete("/cuisines/:id", CuisineController.deleteCuisineById);
+router.delete(
+  "/cuisines/:id",
+  authorizationAdmin,
+  CuisineController.deleteCuisineById
+);
 
 //categories
 router.post("/categories", CategoryController.createCategory);
