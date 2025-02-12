@@ -1,6 +1,48 @@
 const { Cuisine, User } = require("../models");
+const cloudinary = require("cloudinary").v2;
+// Configuration
+cloudinary.config({
+  cloud_name: process.env.CLOUDINARY_NAME,
+  api_key: process.env.CLOUDINARY_KEY,
+  api_secret: process.env.CLOUDINARY_SECRET,
+});
 
 class CuisineController {
+  static async updateImageUrl(req, res, next) {
+    try {
+      const { id } = req.params;
+      const cuisineById = await Cuisine.findByPk(id);
+      if (!cuisineById) {
+        next({ name: "NotFound", message: `Cuisine id:${id} not found!` });
+        return;
+      }
+
+      //   console.log(req.file, "<<< INI FILENYA");
+      const oneMB = 1024000;
+      if (req.file.size > oneMB * 5) {
+        next({ name: "BadRequest", message: "File terlalu besar!" });
+        return;
+      }
+
+      const mediaType = req.file.mimetype;
+      const mediaBase64 = req.file.buffer.toString("base64");
+      //   console.log(mediaBase64);
+
+      // data:[<media-type>][;base64],<data>
+      const base64 = `data:${mediaType};base64,${mediaBase64}`;
+
+      const result = await cloudinary.uploader.upload(base64, {
+        public_id: req.file.originalname,
+        folder: "deka-restaurant-phase2",
+      });
+
+      await cuisineById.update({ imgUrl: result.secure_url });
+      res.json({ message: "Image berhasil diupdate!", result });
+    } catch (err) {
+      next(err);
+    }
+  }
+
   static async createCuisine(req, res, next) {
     try {
       const userId = req.user.id;
@@ -71,8 +113,6 @@ class CuisineController {
   static async updateCuisineById(req, res, next) {
     try {
       const { id } = req.params;
-      const userId = req.user.id;
-      const userRole = req.user.role;
 
       if (!id) {
         // res.status(400).json({ message: "ID cuisine diperlukan" });
@@ -101,11 +141,7 @@ class CuisineController {
         next({ name: "BadRequest", message: "Category diperlukan" });
         return;
       }
-      //   if (!req.body.authorId) {
-      //     // res.status(400).json({ message: "Author diperlukan" });
-      //     next({ name: "BadRequest", message: "Author diperlukan" });
-      //     return;
-      //   }
+
       //validasi selesai
 
       const cuisineById = await Cuisine.findByPk(id);
@@ -115,21 +151,6 @@ class CuisineController {
         next({ name: "NotFound", message: `Cuisine id:${id} not found!` });
         return;
       }
-      console.log(
-        userRole,
-        `INI ROLENYA DAN IDnYA`,
-        cuisineById.authorId,
-        `JUGA,`,
-        userId
-      );
-
-      //   if (userRole !== "Admin" && cuisineById.authorId !== userId) {
-      //     // return res.status(403).json({ message: "Forbidden hanya bisa mengupdate makanan sendiri!" });
-      //     next({
-      //       name: "Forbidden",
-      //     });
-      //     return;
-      //   }
 
       await cuisineById.update(req.body);
       //   console.log(cuisineById);
@@ -150,21 +171,21 @@ class CuisineController {
   static async deleteCuisineById(req, res, next) {
     try {
       const { id } = req.params;
-      const userId = req.user.id;
-      const userRole = req.user.role;
+      //   const userId = req.user.id;
+      //   const userRole = req.user.role;
       const cuisineById = await Cuisine.findByPk(id);
       if (!cuisineById) {
         next({ name: "NotFound", message: `Cuisine id:${id} not found!` });
         return;
       }
 
-      if (userRole !== "Admin" && cuisineById.authorId !== userId) {
-        next({
-          name: "Forbidden",
-          message: "Forbidden hanya bisa mengupdate makanan sendiri!",
-        });
-        return;
-      }
+      //   if (userRole !== "Admin" && cuisineById.authorId !== userId) {
+      //     next({
+      //       name: "Forbidden",
+      //       message: "Forbidden hanya bisa mengupdate makanan sendiri!",
+      //     });
+      //     return;
+      //   }
 
       await cuisineById.destroy();
       res

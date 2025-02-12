@@ -9,9 +9,10 @@ const {
 } = require("../middlewares/authorization");
 const errorHandler = require("../middlewares/errorHandlers");
 const router = express.Router();
-
-// const { verifyToken } = require("../helpers/jwt");
-// const { User } = require("../models/");
+//multer
+const multer = require("multer");
+const storage = multer.memoryStorage();
+const upload = multer({ storage: storage });
 
 router.get("/", (req, res) => {
   res.send(`App sukses dijalankan`);
@@ -46,6 +47,13 @@ router.delete(
   "/cuisines/:id",
   authorizationAdmin,
   CuisineController.deleteCuisineById
+);
+//! edit foto
+router.patch(
+  "/cuisines/:id/image-url",
+  authorizationAdmin,
+  upload.single("photo"),
+  CuisineController.updateImageUrl
 );
 
 //categories
