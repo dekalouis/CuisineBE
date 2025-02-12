@@ -7,10 +7,14 @@ const authorizationAdmin = async (req, res, next) => {
       return;
     }
     // console.log(req);
+    //URL BISA DIAKSES DI req.originalUrl...
     // console.log(req.user.role, `role usernyaaa`);
 
     //! UNTUK MASING MASING CUISINE
-    if (req.originalUrl === `/cuisines/${req.params.id}`) {
+    if (
+      req.originalUrl === `/cuisines/${req.params.id}` ||
+      req.originalUrl === `/cuisines/${req.params.id}/image-url`
+    ) {
       const { id } = req.params;
       const cuisineById = await Cuisine.findByPk(id);
 

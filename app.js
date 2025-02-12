@@ -15,6 +15,9 @@ app.use(routes);
 //   res.send("App sukses dijalankan");
 // });
 
+//commented while testing
 app.listen(port, () => {
-  console.log(`Example app listening on port ${port}`);
+  console.log(`Example app listening on port http://localhost:${port}`);
 });
+
+module.exports = app;
