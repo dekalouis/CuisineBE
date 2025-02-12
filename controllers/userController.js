@@ -33,10 +33,10 @@ class UserController {
 
       const { email, password } = req.body;
       if (!email) {
-        throw { name: "Email dibutuhkan" };
+        next({ name: "BadRequest", message: "Email dibutuhkan" });
       }
       if (!password) {
-        throw { name: "Password dibutuhkan" };
+        next({ name: "BadRequest", message: "Password dibutuhkan" });
       }
 
       //cari
@@ -45,12 +45,18 @@ class UserController {
       });
 
       if (!user) {
-        throw { name: "InvalidPass/Email" };
+        next({
+          name: "InvalidPassEmail",
+          message: "Email atau Password salah!",
+        });
       }
 
       const isValidPass = comparePassword(password, user.password);
       if (!isValidPass) {
-        throw { name: "InvalidPass/Email" };
+        next({
+          name: "InvalidPassEmail",
+          message: "Email atau Password salah!",
+        });
       }
 
       const access_token = signToken({ id: user.id });
