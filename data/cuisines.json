@@ -8,7 +8,7 @@
         "createdAt": "5/18/2024",
         "updatedAt": "3/2/2024",
         "categoryId": 1,
-        "authorId": 2
+        "authorId": 1
     },
     {
         "id": 2,
@@ -40,7 +40,7 @@
         "imgUrl": "https://placecats.com/millie_neo/300/200",
         "createdAt": "3/6/2024",
         "updatedAt": "11/10/2024",
-        "categoryId": 2,
+        "categoryId": 1,
         "authorId": 2
     },
     {
@@ -52,6 +52,6 @@
         "createdAt": "5/26/2024",
         "updatedAt": "7/22/2024",
         "categoryId": 1,
-        "authorId": 1
+        "authorId": 2
     }
 ]

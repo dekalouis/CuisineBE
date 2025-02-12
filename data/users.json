@@ -3,25 +3,25 @@
     "id": 1,
     "username": "test",
     "email": "test@test.com",
-    "password": "$2b$10$4I.qk.zbvggJAbaxM..qbOw.ZqUPr9Qz0qIdb5..OEV5W0.OkoTe6",
+    "password": "testing",
     "role": "Admin",
     "phoneNumber": "9679328724",
-    "address": "Apt 1834"
+    "address": "Jalan Pulang"
   },
   {
     "id": 2,
-    "username": "acamamill1",
-    "email": "sstorch1@elegantthemes.com",
-    "password": "uA4WwRx=<<%Y",
+    "username": "userbaru",
+    "email": "userbaru@test.com",
+    "password": "testing",
     "role": "Staff",
-    "phoneNumber": "1203630305",
-    "address": "PO Box 39097"
+    "phoneNumber": "08111888888",
+    "address": "Jalan Pergi"
   },
   {
     "id": 3,
     "username": "pkobierski2",
     "email": "ebalffye2@technorati.com",
-    "password": "rL3!Fh}`*=7!~",
+    "password": "testing",
     "role": "Staff",
     "phoneNumber": "9009289491",
     "address": "Suite 51"
@@ -30,7 +30,7 @@
     "id": 4,
     "username": "dmatthieson3",
     "email": "aalliker3@psu.edu",
-    "password": "pE12/1||psQ",
+    "password": "testing",
     "role": "Staff",
     "phoneNumber": "2565815330",
     "address": "Apt 522"
@@ -39,7 +39,7 @@
     "id": 5,
     "username": "kmcelvogue4",
     "email": "mmoffett4@sitemeter.com",
-    "password": "xI1h*9r59/E",
+    "password": "testing",
     "role": "Staff",
     "phoneNumber": "5914860261",
     "address": "PO Box 23637"

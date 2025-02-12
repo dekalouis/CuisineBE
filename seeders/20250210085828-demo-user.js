@@ -1,6 +1,7 @@
 "use strict";
 
 const fs = require("fs");
+const { hashPassword } = require("../helpers/bcrypt");
 
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
@@ -17,6 +18,7 @@ module.exports = {
     const users = JSON.parse(fs.readFileSync("./data/users.json", "utf-8")).map(
       (user) => {
         delete user.id;
+        user.password = hashPassword(user.password);
         return {
           ...user,
           createdAt: new Date(),
