@@ -33,7 +33,7 @@ const authorizationAdmin = async (req, res, next) => {
   }
 };
 
-const adminAddUser = (req, res, next) => {
+const adminPriviledge = (req, res, next) => {
   try {
     if (!req.user) {
       next({ name: "Unauthorized", message: `Tidak boleh masuk!` });
@@ -44,12 +44,13 @@ const adminAddUser = (req, res, next) => {
     } else {
       next({
         name: "Forbidden",
-        message: `Forbidden Access! Tidak bisa tambah user!`,
+        message: `Forbidden Access!`,
       });
     }
+    //
   } catch (err) {
     next(err);
   }
 };
 
-module.exports = { authorizationAdmin, adminAddUser };
+module.exports = { authorizationAdmin, adminPriviledge };

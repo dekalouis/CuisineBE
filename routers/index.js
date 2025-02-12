@@ -5,7 +5,7 @@ const express = require("express");
 const authentication = require("../middlewares/authentication");
 const {
   authorizationAdmin,
-  adminAddUser,
+  adminPriviledge,
 } = require("../middlewares/authorization");
 const errorHandler = require("../middlewares/errorHandlers");
 const router = express.Router();
@@ -26,7 +26,7 @@ router.post(
   "/add-user",
   authentication,
   authorizationAdmin,
-  adminAddUser,
+  adminPriviledge,
   UserController.addUser
 );
 router.post("/login", UserController.login);
@@ -49,10 +49,18 @@ router.delete(
 );
 
 //categories
-router.post("/categories", CategoryController.createCategory);
+router.post("/categories", adminPriviledge, CategoryController.createCategory);
 router.get("/categories", CategoryController.getCateogires);
-router.put("/categories/:id", CategoryController.updateCategoryById);
-router.delete("/categories/:id", CategoryController.deleteCategoryById);
+router.put(
+  "/categories/:id",
+  adminPriviledge,
+  CategoryController.updateCategoryById
+);
+router.delete(
+  "/categories/:id",
+  adminPriviledge,
+  CategoryController.deleteCategoryById
+);
 
 router.use(errorHandler);
 
