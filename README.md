@@ -355,7 +355,7 @@ This endpoint allows **authenticated users** to update an existing cuisine. **St
 
 ```json
 {
-  "message": "Cuisine id:id updated."
+  "message": "Cuisine id:1 updated."
 }
 ```
 
@@ -593,3 +593,61 @@ This endpoint allows **Admins only** to delete an existing category.
 ---
 
 ## Public Endpoints
+
+## 1. GET /pub/cuisines
+
+**Description:**
+This public endpoint allows anyone to retrieve a list of all cuisines without authentication.
+
+### Response:
+
+- 200 OK
+
+```json
+[
+  {
+    "id": 1,
+    "name": "string",
+    "description": "string",
+    "price": "integer",
+    "imgUrl": "string",
+    "categoryId": "integer",
+    "authorId": "integer",
+    "createdAt": "string",
+    "updatedAt": "string"
+  }
+]
+```
+
+---
+
+## 2. GET /pub/cuisines/:id
+
+**Description:**
+This public endpoint allows anyone to retrieve details of a specific cuisine by its ID without authentication.
+
+### Response:
+
+- 200 OK
+
+```json
+{
+  "id": 1,
+  "name": "string",
+  "description": "string",
+  "price": "integer",
+  "imgUrl": "string",
+  "categoryId": "integer",
+  "authorId": "integer",
+  "createdAt": "string",
+  "updatedAt": "string"
+}
+```
+
+- 404 Not Found
+
+```json
+{
+  "message": "Cuisine id:1 not found!"
+}
+```
