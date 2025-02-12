@@ -3,7 +3,10 @@ const CategoryController = require("../controllers/categoryController");
 const UserController = require("../controllers/userController");
 const express = require("express");
 const authentication = require("../middlewares/authentication");
-const authorizationAdmin = require("../middlewares/authorization");
+const {
+  authorizationAdmin,
+  adminAddUser,
+} = require("../middlewares/authorization");
 const errorHandler = require("../middlewares/errorHandlers");
 const router = express.Router();
 
@@ -23,6 +26,7 @@ router.post(
   "/add-user",
   authentication,
   authorizationAdmin,
+  adminAddUser,
   UserController.addUser
 );
 router.post("/login", UserController.login);
