@@ -1,5 +1,6 @@
 [
   { "id": 1, "name": "Main Course" },
   { "id": 2, "name": "Appetizer" },
-  { "id": 3, "name": "Desert" }
+  { "id": 3, "name": "Desert" },
+  { "id": 4, "name": "Drinks" }
 ]

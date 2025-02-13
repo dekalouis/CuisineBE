@@ -41,7 +41,7 @@ beforeAll(async () => {
       updatedAt: new Date(),
     };
   });
-  //PUTs
+  //cuisines
   const cuisines = require("../data/cuisines.json").map((cuisine) => {
     delete cuisine.id;
     return {

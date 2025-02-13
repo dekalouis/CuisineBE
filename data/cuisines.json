@@ -29,7 +29,7 @@
         "imgUrl": "https://placecats.com/millie/300/150",
         "createdAt": "3/26/2024",
         "updatedAt": "9/9/2024",
-        "categoryId": 1,
+        "categoryId": 2,
         "authorId": 1
     },
     {
@@ -40,7 +40,7 @@
         "imgUrl": "https://placecats.com/millie_neo/300/200",
         "createdAt": "3/6/2024",
         "updatedAt": "11/10/2024",
-        "categoryId": 1,
+        "categoryId": 2,
         "authorId": 2
     },
     {
@@ -51,7 +51,194 @@
         "imgUrl": "https://placecats.com/neo_banana/300/200",
         "createdAt": "5/26/2024",
         "updatedAt": "7/22/2024",
+        "categoryId": 3,
+        "authorId": 2
+    },
+    {
+        "id": 6,
+        "name": "Nasi Goreng",
+        "description": "Indonesian fried rice with egg, chicken, and shrimp, served with crackers.",
+        "price": 30000,
+        "imgUrl": "https://placecats.com/300/200",
+        "createdAt": "2/1/2025",
+        "updatedAt": "2/5/2025",
+        "categoryId": 1,
+        "authorId": 1
+    },
+    {
+        "id": 7,
+        "name": "Rendang",
+        "description": "Slow-cooked beef in coconut milk and a rich blend of spices.",
+        "price": 45000,
+        "imgUrl": "https://placecats.com/neo/300/200",
+        "createdAt": "1/15/2025",
+        "updatedAt": "1/20/2025",
         "categoryId": 1,
         "authorId": 2
+    },
+    {
+        "id": 8,
+        "name": "Soto Ayam",
+        "description": "Traditional Indonesian chicken soup with turmeric and rice noodles.",
+        "price": 28000,
+        "imgUrl": "https://placecats.com/millie/300/150",
+        "createdAt": "2/10/2025",
+        "updatedAt": "2/11/2025",
+        "categoryId": 1,
+        "authorId": 3
+    },
+    {
+        "id": 9,
+        "name": "Pempek",
+        "description": "Fishcake served with a sweet and tangy vinegar sauce.",
+        "price": 20000,
+        "imgUrl": "https://placecats.com/millie_neo/300/200",
+        "createdAt": "1/5/2025",
+        "updatedAt": "1/8/2025",
+        "categoryId": 2,
+        "authorId": 1
+    },
+    {
+        "id": 10,
+        "name": "Gado-Gado",
+        "description": "Indonesian salad with peanut sauce dressing.",
+        "price": 25000,
+        "imgUrl": "https://placecats.com/neo_banana/300/200",
+        "createdAt": "3/1/2025",
+        "updatedAt": "3/2/2025",
+        "categoryId": 2,
+        "authorId": 2
+    },
+    {
+        "id": 11,
+        "name": "Martabak Manis",
+        "description": "Sweet pancake filled with chocolate, cheese, or peanuts.",
+        "price": 22000,
+        "imgUrl": "https://placecats.com/300/200",
+        "createdAt": "4/10/2025",
+        "updatedAt": "4/15/2025",
+        "categoryId": 3,
+        "authorId": 3
+    },
+    {
+        "id": 12,
+        "name": "Es Cendol",
+        "description": "Iced dessert with pandan jelly, coconut milk, and palm sugar.",
+        "price": 18000,
+        "imgUrl": "https://placecats.com/neo/300/200",
+        "createdAt": "3/12/2025",
+        "updatedAt": "3/13/2025",
+        "categoryId": 3,
+        "authorId": 1
+    },
+    {
+        "id": 13,
+        "name": "Klepon",
+        "description": "Sweet rice cake balls filled with palm sugar and coated in coconut.",
+        "price": 15000,
+        "imgUrl": "https://placecats.com/millie/300/150",
+        "createdAt": "2/8/2025",
+        "updatedAt": "2/9/2025",
+        "categoryId": 3,
+        "authorId": 2
+    },
+    {
+        "id": 14,
+        "name": "Bajigur",
+        "description": "Warm coconut milk drink with ginger and palm sugar.",
+        "price": 12000,
+        "imgUrl": "https://placecats.com/millie_neo/300/200",
+        "createdAt": "1/25/2025",
+        "updatedAt": "1/28/2025",
+        "categoryId": 4,
+        "authorId": 3
+    },
+    {
+        "id": 15,
+        "name": "Wedang Jahe",
+        "description": "Ginger tea with aromatic spices, served warm.",
+        "price": 10000,
+        "imgUrl": "https://placecats.com/neo_banana/300/200",
+        "createdAt": "2/14/2025",
+        "updatedAt": "2/15/2025",
+        "categoryId": 4,
+        "authorId": 1
+    },
+    {
+        "id": 16,
+        "name": "Es Teler",
+        "description": "Mixed fruit cocktail with avocado, coconut, and condensed milk.",
+        "price": 20000,
+        "imgUrl": "https://placecats.com/300/200",
+        "createdAt": "4/5/2025",
+        "updatedAt": "4/7/2025",
+        "categoryId": 4,
+        "authorId": 2
+    },
+    {
+        "id": 17,
+        "name": "Sate Ayam",
+        "description": "Grilled chicken skewers served with peanut sauce.",
+        "price": 35000,
+        "imgUrl": "https://placecats.com/neo/300/200",
+        "createdAt": "3/20/2025",
+        "updatedAt": "3/22/2025",
+        "categoryId": 1,
+        "authorId": 3
+    },
+    {
+        "id": 18,
+        "name": "Nasi Uduk",
+        "description": "Aromatic coconut rice served with fried shallots, egg, and side dishes.",
+        "price": 28000,
+        "imgUrl": "https://placecats.com/millie/300/150",
+        "createdAt": "4/12/2025",
+        "updatedAt": "4/14/2025",
+        "categoryId": 1,
+        "authorId": 2
+    },
+    {
+        "id": 19,
+        "name": "Tahu Isi",
+        "description": "Deep-fried tofu filled with spiced vegetables.",
+        "price": 15000,
+        "imgUrl": "https://placecats.com/neo_banana/300/200",
+        "createdAt": "3/28/2025",
+        "updatedAt": "3/30/2025",
+        "categoryId": 2,
+        "authorId": 1
+    },
+    {
+        "id": 20,
+        "name": "Lapis Legit",
+        "description": "Rich and dense layer cake with cinnamon and nutmeg flavors.",
+        "price": 40000,
+        "imgUrl": "https://placecats.com/300/200",
+        "createdAt": "5/2/2025",
+        "updatedAt": "5/4/2025",
+        "categoryId": 3,
+        "authorId": 3
+    },
+    {
+        "id": 21,
+        "name": "Bir Pletok",
+        "description": "A traditional Betawi herbal drink made with ginger and pandan leaves.",
+        "price": 13000,
+        "imgUrl": "https://placecats.com/neo/300/200",
+        "createdAt": "2/18/2025",
+        "updatedAt": "2/19/2025",
+        "categoryId": 4,
+        "authorId": 2
+    },
+    {
+        "id": 22,
+        "name": "Cendol Dawet",
+        "description": "A refreshing traditional drink made with rice flour jelly, coconut milk, and palm sugar syrup.",
+        "price": 16000,
+        "imgUrl": "https://placecats.com/millie_neo/300/200",
+        "createdAt": "3/6/2025",
+        "updatedAt": "3/7/2025",
+        "categoryId": 4,
+        "authorId": 1
     }
 ]
