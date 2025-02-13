@@ -77,3 +77,13 @@ describe("GET /pub/cuisines", () => {
     expect(response.body.length).toBeLessThanOrEqual(10);
   });
 });
+//10.endpoint public site
+
+//todo sukses without query filter parameter
+//todo sukses with 1 query filter parameter
+//todo sukses serta panjang paginationnya
+
+//11.endpoint public site
+
+//todo sukses 1 cuisine dengan id param
+//todo gagal karena invalid id

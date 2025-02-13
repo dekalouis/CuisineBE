@@ -205,7 +205,7 @@ class CuisineController {
       if (filter && filter.categories) {
         paramQuerySQL.where.categoryId = filter.categories.split(",");
       }
-      console.log(paramQuerySQL.where, `INI BOS`);
+      console.log(paramQuerySQL.where.categoryId, `INI BOS`);
 
       ///pub/cuisines?sort[by]=createdAt&sort[order]=asc
       //*SORT

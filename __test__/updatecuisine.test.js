@@ -115,7 +115,7 @@ describe("PUT /cuisines/:id testing", () => {
     );
   });
 
-  // //todo failed not yet login
+  //todo failed not yet login
 
   test("/PUT /cuisines failed not yet login", async () => {
     const response = await request(app)
@@ -132,7 +132,7 @@ describe("PUT /cuisines/:id testing", () => {
     expect(response.body).toHaveProperty("message", "Invalid token");
   });
 
-  // //todo gagal karena invalid token
+  //todo gagal karena invalid token
 
   test("PUT /cuisines failed invalid token", async () => {
     const response = await request(app)
@@ -150,7 +150,7 @@ describe("PUT /cuisines/:id testing", () => {
     expect(response.body).toHaveProperty("message", "Invalid token");
   });
 
-  // //todo gagal karena id not found
+  //todo gagal karena id not found
 
   test("PUT /cuisines failed id not found", async () => {
     const response = await request(app)
@@ -171,7 +171,7 @@ describe("PUT /cuisines/:id testing", () => {
     );
   });
 
-  // //todo staff no access coba edit
+  //todo staff no access coba edit
 
   test("PUT /cuisines failed staff no access", async () => {
     const response = await request(app)
@@ -192,22 +192,20 @@ describe("PUT /cuisines/:id testing", () => {
     );
   });
 
-  //7.PUT cuisine
+  //todo gagal request body tidak sesuai
 
-  //todo sukses
-  //todo failed not yet login
-  //todo gagal karena invalid token
-  //todo gagal karena id not found
-  //todo staff no access coba edit
-
-  //10.endpoint public site
-
-  //todo sukses without query filter parameter
-  //todo sukses with 1 query filter parameter
-  //todo sukses serta panjang paginationnya
-
-  //11.endpoint public site
-
-  //todo sukses 1 cuisine dengan id param
-  //todo gagal karena invalid id
+  test("PUT /cuisines failed staff no access", async () => {
+    const response = await request(app)
+      .put(`/cuisines/${cuisineSample.id}`)
+      .set("Authorization", `Bearer ${adminToken}`)
+      .send({
+        name: "test food",
+        price: 10000,
+        imgUrl:
+          "https://developers.elementor.com/docs/assets/img/elementor-placeholder-image.png",
+        categoryId: 1,
+      });
+    expect(response.status).toBe(400);
+    expect(response.body).toHaveProperty("message", "Description diperlukan");
+  });
 });
