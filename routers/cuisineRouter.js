@@ -1,7 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const CuisineController = require("../controllers/cuisineController");
-const authentication = require("../middlewares/authentication");
+// const authentication = require("../middlewares/authentication");
 const { authorizationAdmin } = require("../middlewares/authorization");
 
 //multer

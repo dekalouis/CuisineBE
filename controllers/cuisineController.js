@@ -1,3 +1,4 @@
+const { Op } = require("sequelize");
 const { Cuisine, User, Category } = require("../models");
 const cloudinary = require("cloudinary").v2;
 // Configuration
@@ -190,39 +191,62 @@ class CuisineController {
 
   static async getPublicCuisine(req, res, next) {
     try {
+      console.log(req.query);
       const { filter, sort, page, q } = req.query;
 
-      // let options = {
-      //   limit: 5,
-      //   offset: 0,
-      //   where: {},
-      // };
-      // console.log(options);
+      const paramQuerySQL = {
+        where: {},
+        limit: 10,
+        offset: 0,
+      };
+
+      //pub/cuisines?filter[categories]=3
+      //* FILTER
+      if (filter && filter.categories) {
+        paramQuerySQL.where.categoryId = filter.categories.split(",");
+      }
+      console.log(paramQuerySQL.where, `INI BOS`);
+
+      ///pub/cuisines?sort[by]=createdAt&sort[order]=asc
+      //*SORT
+      if (sort) {
+        const validOrders = ["asc", "desc"];
+        if (!sort.by || sort.by !== "createdAt") {
+          next({ name: "BadRequest", message: "Hanya bisa sort createdAt!" });
+          return;
+        }
+        if (!sort.order || !validOrders.includes(sort.order.toLowerCase())) {
+          next({
+            name: "BadRequest",
+            message: "Invalid order, hanya bisa asc atau desc.",
+          });
+        }
+        paramQuerySQL.order = [[sort.by, sort.order]];
+      }
+
+      //*PAGINATION
+      ///pub/cuisines?page[size]=5&page[number]=2
+      if (page) {
+        if (page.size) {
+          paramQuerySQL.limit = page.size;
+        }
+        if (page.number) {
+          paramQuerySQL.offset =
+            page.number * paramQuerySQL.limit - paramQuerySQL.limit;
+        }
+      }
 
       // //* SEARCH
-      // if (q) {
-      //   options.where = {
-      //     name: {
-      //       [Op.iLike]: `%${q}%`,
-      //     },
-      //   };
-      // }
-      // // //* FILTER
-      // if (filter) {
-      //   paramQuerySQL.where.genreId = filter.genres.split(',');
+      //pub/cuisines?q=burger
+      if (q) {
+        paramQuerySQL.where = {
+          name: {
+            [Op.iLike]: `%${q}%`,
+          },
+        };
+      }
 
-      // }
-      // //*SORT
-      // if (sort) {
-      //   options.order = [sort.by, sort.order];
-      // }
-      // //*PAGINATION
-      // if (page) {
-      //   options.limit = 2;
-      //   options.offset = (page - 1) * 2;
-      // }
-
-      const cuisines = await Cuisine.findAll();
+      const cuisines = await Cuisine.findAll(paramQuerySQL);
       //   console.log(cuisines);
       res.status(200).json(cuisines);
     } catch (err) {
