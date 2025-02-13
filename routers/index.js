@@ -4,15 +4,13 @@ const UserController = require("../controllers/userController");
 const express = require("express");
 const authentication = require("../middlewares/authentication");
 const {
-  authorizationAdmin,
+  // authorizationAdmin,
   adminPrivilege,
 } = require("../middlewares/authorization");
 const errorHandler = require("../middlewares/errorHandlers");
 const router = express.Router();
-//multer
-const multer = require("multer");
-const storage = multer.memoryStorage();
-const upload = multer({ storage: storage });
+const cuisineRouter = require("./cuisineRouter");
+const categoryRouter = require("./categoryRouter");
 
 router.get("/", (req, res) => {
   res.send(`App sukses dijalankan`);
@@ -34,7 +32,8 @@ router.post("/login", UserController.login);
 
 router.use(authentication);
 //main table- cuisine
-router.post("/cuisines", CuisineController.createCuisine);
+router.use("/cuisines", cuisineRouter);
+/*router.post("/cuisines", CuisineController.createCuisine);
 router.get("/cuisines", CuisineController.getCuisine);
 router.get("/cuisines/:id", CuisineController.getCuisineById);
 
@@ -54,10 +53,11 @@ router.patch(
   authorizationAdmin,
   upload.single("photo"),
   CuisineController.updateImageUrl
-);
+);*/
 
 //categories
-router.post("/categories", adminPrivilege, CategoryController.createCategory);
+router.use("/categories", categoryRouter);
+/*router.post("/categories", adminPrivilege, CategoryController.createCategory);
 router.get("/categories", CategoryController.getCategories);
 router.put(
   "/categories/:id",
@@ -68,7 +68,7 @@ router.delete(
   "/categories/:id",
   adminPrivilege,
   CategoryController.deleteCategoryById
-);
+);*/
 
 router.use(errorHandler);
 
