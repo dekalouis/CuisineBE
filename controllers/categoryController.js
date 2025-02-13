@@ -21,10 +21,10 @@ class CategoryController {
     }
   }
 
-  static async getCateogires(req, res, next) {
+  static async getCategories(req, res, next) {
     try {
       const categories = await Category.findAll();
-      //   console.log(Categorys);
+      //   console.log(categories);
       res.status(200).json(categories);
     } catch (err) {
       next(err);

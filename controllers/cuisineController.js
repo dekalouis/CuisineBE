@@ -1,4 +1,4 @@
-const { Cuisine, User } = require("../models");
+const { Cuisine, User, Category } = require("../models");
 const cloudinary = require("cloudinary").v2;
 // Configuration
 cloudinary.config({
@@ -179,14 +179,6 @@ class CuisineController {
         return;
       }
 
-      //   if (userRole !== "Admin" && cuisineById.authorId !== userId) {
-      //     next({
-      //       name: "Forbidden",
-      //       message: "Forbidden hanya bisa mengupdate makanan sendiri!",
-      //     });
-      //     return;
-      //   }
-
       await cuisineById.destroy();
       res
         .status(200)
@@ -198,6 +190,38 @@ class CuisineController {
 
   static async getPublicCuisine(req, res, next) {
     try {
+      const { filter, sort, page, q } = req.query;
+
+      // let options = {
+      //   limit: 5,
+      //   offset: 0,
+      //   where: {},
+      // };
+      // console.log(options);
+
+      // //* SEARCH
+      // if (q) {
+      //   options.where = {
+      //     name: {
+      //       [Op.iLike]: `%${q}%`,
+      //     },
+      //   };
+      // }
+      // // //* FILTER
+      // if (filter) {
+      //   paramQuerySQL.where.genreId = filter.genres.split(',');
+
+      // }
+      // //*SORT
+      // if (sort) {
+      //   options.order = [sort.by, sort.order];
+      // }
+      // //*PAGINATION
+      // if (page) {
+      //   options.limit = 2;
+      //   options.offset = (page - 1) * 2;
+      // }
+
       const cuisines = await Cuisine.findAll();
       //   console.log(cuisines);
       res.status(200).json(cuisines);

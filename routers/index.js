@@ -5,7 +5,7 @@ const express = require("express");
 const authentication = require("../middlewares/authentication");
 const {
   authorizationAdmin,
-  adminPriviledge,
+  adminPrivilege,
 } = require("../middlewares/authorization");
 const errorHandler = require("../middlewares/errorHandlers");
 const router = express.Router();
@@ -26,8 +26,8 @@ router.get("/pub/cuisines/:id", CuisineController.getPublicCuisineById);
 router.post(
   "/add-user",
   authentication,
-  authorizationAdmin,
-  adminPriviledge,
+  // authorizationAdmin,
+  adminPrivilege,
   UserController.addUser
 );
 router.post("/login", UserController.login);
@@ -57,16 +57,16 @@ router.patch(
 );
 
 //categories
-router.post("/categories", adminPriviledge, CategoryController.createCategory);
-router.get("/categories", CategoryController.getCateogires);
+router.post("/categories", adminPrivilege, CategoryController.createCategory);
+router.get("/categories", CategoryController.getCategories);
 router.put(
   "/categories/:id",
-  adminPriviledge,
+  adminPrivilege,
   CategoryController.updateCategoryById
 );
 router.delete(
   "/categories/:id",
-  adminPriviledge,
+  adminPrivilege,
   CategoryController.deleteCategoryById
 );
 
