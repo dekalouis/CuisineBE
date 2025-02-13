@@ -11,33 +11,33 @@ const authorizationAdmin = async (req, res, next) => {
     // console.log(req.user.role, `role usernyaaa`);
 
     //! UNTUK MASING MASING CUISINE
-    if (
-      req.originalUrl === `/cuisines/${req.params.id}` ||
-      req.originalUrl === `/cuisines/${req.params.id}/image-url`
-    ) {
-      const { id } = req.params;
-      const cuisineById = await Cuisine.findByPk(id);
+    // if (
+    //   req.originalUrl === `/cuisines/${req.params.id}` ||
+    //   req.originalUrl === `/cuisines/${req.params.id}/image-url`
+    // ) {
+    const { id } = req.params;
+    const cuisineById = await Cuisine.findByPk(id);
 
-      if (!cuisineById) {
-        next({ name: "NotFound", message: `Cuisine id:${id} not found!` });
-        return;
-      }
-
-      if (req.user.role !== "Admin" && cuisineById.authorId !== req.user.id) {
-        next({
-          name: "Forbidden",
-          message: `Forbidden Access! Kamu bukan Admin!`,
-        });
-        return;
-      }
+    if (!cuisineById) {
+      next({ name: "NotFound", message: `Cuisine id:${id} not found!` });
+      return;
     }
+
+    if (req.user.role !== "Admin" && cuisineById.authorId !== req.user.id) {
+      next({
+        name: "Forbidden",
+        message: `Forbidden Access! Kamu bukan Admin!`,
+      });
+      return;
+    }
+    // }
     next();
   } catch (err) {
     next(err);
   }
 };
 
-const adminPriviledge = (req, res, next) => {
+const adminPrivilege = (req, res, next) => {
   try {
     if (!req.user) {
       next({ name: "Unauthorized", message: `Tidak boleh masuk!` });
@@ -57,4 +57,4 @@ const adminPriviledge = (req, res, next) => {
   }
 };
 
-module.exports = { authorizationAdmin, adminPriviledge };
+module.exports = { authorizationAdmin, adminPrivilege };
