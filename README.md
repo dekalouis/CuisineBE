@@ -35,8 +35,6 @@
 - `GET /pub/cuisines`
 - `GET /pub/cuisines/:id`
 
-
-
 <br>
 <!--! ADDUSER -->
 
