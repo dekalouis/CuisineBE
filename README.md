@@ -35,7 +35,7 @@
 - `GET /pub/cuisines`
 - `GET /pub/cuisines/:id`
 
-DB Password: Thisisaverystrongpassword!
+
 
 <br>
 <!--! ADDUSER -->
