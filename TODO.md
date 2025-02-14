@@ -74,23 +74,23 @@ Target:
   - [x] Jika request gagal karena todo tidak ditemukan, kembalikan response dengan 404 status code dan response body berupa object yang berisikan error not found
   - [x] Jika request gagal karena kesalahan server, kembalikan response dengan 500 status code.
 
-- [ ] Mengambil semua data entitas utama (Read / GET) untuk public site
+- [x] Mengambil semua data entitas utama (Read / GET) untuk public site
 
-  - [ ] Tambahkan prefix /pub pada endpoint ini
-  - [ ] Jika request berhasil, kembalikan response dengan 200 status code dan response body berupa array of objects yang berisikan semua data entitas utama.
-  - [ ] Jika request gagal, kembalikan response dengan 500 status code.
+  - [x] Tambahkan prefix /pub pada endpoint ini
+  - [x] Jika request berhasil, kembalikan response dengan 200 status code dan response body berupa array of objects yang berisikan semua data entitas utama.
+  - [x] Jika request gagal, kembalikan response dengan 500 status code.
 
-- [ ] Mengambil detail entitas utama berdasar id (Read / GET) untuk public site
-  - [ ] Tambahkan prefix /pub pada endpoint kalian
-  - [ ] Id dikirimkan via request params
-  - [ ] Jika request berhasil, kembalikan response dengan 200 status code dan response body berupa object yang berisikan data.
-  - [ ] Jika request gagal karena data tidak ditemukan, kembalikan response dengan 404 status code dan response body berupa object yang berisikan error not found.
+- [x] Mengambil detail entitas utama berdasar id (Read / GET) untuk public site
+  - [x] Tambahkan prefix /pub pada endpoint kalian
+  - [x] Id dikirimkan via request params
+  - [x] Jika request berhasil, kembalikan response dengan 200 status code dan response body berupa object yang berisikan data.
+  - [x] Jika request gagal karena data tidak ditemukan, kembalikan response dengan 404 status code dan response body berupa object yang berisikan error not found.
 
 ### **API Documentation**
 
-- [ ] Route /path yang digunakan di aplikasi yang kamu buat
-- [ ] Informasi yang diperlukan oleh user saat ingin menggunakan route/path API (seperti body, header, parameter, dll)
-- [ ] Response serta status code yang akan didapatkan oleh pengguna (info, error, warning, dsb)
+- [x] Route /path yang digunakan di aplikasi yang kamu buat
+- [x] Informasi yang diperlukan oleh user saat ingin menggunakan route/path API (seperti body, header, parameter, dll)
+- [x] Response serta status code yang akan didapatkan oleh pengguna (info, error, warning, dsb)
 
 Lebih lanjut untuk contoh, bisa dilihat di:
 
@@ -102,54 +102,54 @@ Target:
 
 ### **Authentication + Authorization**
 
-- [ ] POST /add-user (khusus untuk staff, dilakukan oleh admin)
+- [x] POST /add-user (khusus untuk staff, dilakukan oleh admin)
 
-  - [ ] Request Headers: { Authorization: "Bearer [your access token]" }
-  - [ ] Request body: { email, password }
-  - [ ] Response:
-    - [ ] 201: { id, email }
-    - [ ] 400: { errors }
+  - [x] Request Headers: { Authorization: "Bearer [your access token]" }
+  - [x] Request body: { email, password }
+  - [x] Response:
+    - [x] 201: { id, email }
+    - [x] 400: { errors }
 
   Note: Pastikan password telah terhash sebelum data user masuk ke dalam database.
 
-- [ ] POST /login (semua role, baik admin atau staff)
+- [x] POST /login (semua role, baik admin atau staff)
 
-  - [ ] Request body: { email, password }
-  - [ ] Response:
-    - [ ] 200: { access_token, email/username, role }
-    - [ ] 401: { error invalid username or email or password }
+  - [x] Request body: { email, password }
+  - [x] Response:
+    - [x] 200: { access_token, email/username, role }
+    - [x] 401: { error invalid username or email or password }
 
-- [ ] Menambahkan Authentication dan Authorization
+- [x] Menambahkan Authentication dan Authorization
 
 | Role  | Create | Read   | Update                             | Delete                             |
 | ----- | ------ | ------ | ---------------------------------- | ---------------------------------- |
-| Admin | [ ] ✅ | [ ] ✅ | [ ] ✅                             | [ ] ✅                             |
-| Staff | [ ] ✅ | [ ] ✅ | [ ] Hanya bisa menghapus miliknya. | [ ] Hanya bisa menghapus miliknya. |
+| Admin | [x] ✅ | [x] ✅ | [x] ✅                             | [x] ✅                             |
+| Staff | [x] ✅ | [x] ✅ | [x] Hanya bisa menghapus miliknya. | [x] Hanya bisa menghapus miliknya. |
 
-- [ ] Error status code 401, apabila user yang belum login, atau yang mempunyai token yang salah mencoba mengakses endpoint CRD.
-- [ ] Error status code 403, apabila staff mengakses delete pada entitas yang bukan miliknya.
+- [x] Error status code 401, apabila user yang belum login, atau yang mempunyai token yang salah mencoba mengakses endpoint CRD.
+- [x] Error status code 403, apabila staff mengakses delete pada entitas yang bukan miliknya.
 
   Note: Untuk mengirim access_token, gunakan request header (diterima sebagai req.headers di Express).
 
 ### **Error Handler**
 
-- [ ] 401 - Error login user not found atau password not matched
-- [ ] 401 - Error authentication
-- [ ] 403 - Forbidden error di authorization
-- [ ] 400 - Error validation saat create.
-- [ ] 404 - Data not found.
-- [ ] 500 - Internal error server, dsb
+- [x] 401 - Error login user not found atau password not matched
+- [x] 401 - Error authentication
+- [x] 403 - Forbidden error di authorization
+- [x] 400 - Error validation saat create.
+- [x] 404 - Data not found.
+- [x] 500 - Internal error server, dsb
 
 ### **Upload File**
 
-- [ ] Meng-update data imgUrl entitas utama (Update / PATCH)
-  - [ ] Endpoint ini akan menerima request body berupa ("multipart/form-data") untuk meng-update data imgUrl.
-  - [ ] Id dikirimkan via request params.
-  - [ ] Membuat fitur upload menggunakan [multer](https://www.npmjs.com/package/multer) dan [imageKit](https://imagekit.io/)/[Cloudinary](https://cloudinary.com) untuk menyimpan file tersebut.
-  - [ ] Jika request berhasil, kembalikan response dengan 200 status code dan response body berupa object message: 'Image [entity name] success to update'
-  - [ ] Jika request gagal karena data tidak ditemukan, kembalikan response dengan status code 404 dan response body berupa object yang berisikan error not found.
-  - [ ] Jika request gagal karena validasi tidak terpenuhi, kembalikan response dengan status code 400 dan response body berupa object yang berisikan validation errors.
-  - [ ] Jika request gagal karena kesalahan server, kembalikan response dengan status code 500.
+- [x] Meng-update data imgUrl entitas utama (Update / PATCH)
+  - [x] Endpoint ini akan menerima request body berupa ("multipart/form-data") untuk meng-update data imgUrl.
+  - [x] Id dikirimkan via request params.
+  - [x] Membuat fitur upload menggunakan [multer](https://www.npmjs.com/package/multer) dan [imageKit](https://imagekit.io/)/[Cloudinary](https://cloudinary.com) untuk menyimpan file tersebut.
+  - [x] Jika request berhasil, kembalikan response dengan 200 status code dan response body berupa object message: 'Image [entity name] success to update'
+  - [x] Jika request gagal karena data tidak ditemukan, kembalikan response dengan status code 404 dan response body berupa object yang berisikan error not found.
+  - [x] Jika request gagal karena validasi tidak terpenuhi, kembalikan response dengan status code 400 dan response body berupa object yang berisikan validation errors.
+  - [x] Jika request gagal karena kesalahan server, kembalikan response dengan status code 500.
 
 ## **W1D3**
 
@@ -159,99 +159,99 @@ Target:
 
 Mengimplementasikan testing terhadap endpoint yang sudah dibuat
 
-- [ ] Login (Admin), perlu melakukan pengecekan pada status dan response ketika:
+- [x] Login (Admin), perlu melakukan pengecekan pada status dan response ketika:
 
-  - [ ] Email tidak diberikan / tidak diinput
-  - [ ] Password tidak diberikan / tidak diinput
-  - [ ] Email diberikan invalid / tidak terdaftar
-  - [ ] Password diberikan salah / tidak match
+  - [x] Email tidak diberikan / tidak diinput
+  - [x] Password tidak diberikan / tidak diinput
+  - [x] Email diberikan invalid / tidak terdaftar
+  - [x] Password diberikan salah / tidak match
   - Pastikan untuk testing ini sediakan dulu data Admin
 
-- [ ] Add Staff, perlu melakukan pengecekan pada status dan response ketika:
+- [x] Add Staff, perlu melakukan pengecekan pada status dan response ketika:
 
-  - [ ] Berhasil register
-  - [ ] Email tidak diberikan / tidak diinput
-  - [ ] Password tidak diberikan / tidak diinput
-  - [ ] Email diberikan string kosong
-  - [ ] Password diberikan string kosong
-  - [ ] Email sudah terdaftar
-  - [ ] Format Email salah / invalid
-  - [ ] Gagal register staff karena admin belum login
-  - [ ] Gagal register staff karena token yang diberikan tidak valid (random string)
+  - [x] Berhasil register
+  - [x] Email tidak diberikan / tidak diinput
+  - [x] Password tidak diberikan / tidak diinput
+  - [x] Email diberikan string kosong
+  - [x] Password diberikan string kosong
+  - [x] Email sudah terdaftar
+  - [x] Format Email salah / invalid
+  - [x] Gagal register staff karena admin belum login
+  - [x] Gagal register staff karena token yang diberikan tidak valid (random string)
 
-- [ ] Create, perlu melakukan pengecekan pada status dan response ketika:
+- [x] Create, perlu melakukan pengecekan pada status dan response ketika:
 
-  - [ ] Berhasil membuat entitas utama
-  - [ ] Gagal menjalankan fitur karena belum login
-  - [ ] Gagal menjalankan fitur karena token yang diberikan tidak valid
-  - [ ] Gagal ketika request body tidak sesuai (validation required)
+  - [x] Berhasil membuat entitas utama
+  - [x] Gagal menjalankan fitur karena belum login
+  - [x] Gagal menjalankan fitur karena token yang diberikan tidak valid
+  - [x] Gagal ketika request body tidak sesuai (validation required)
   - Buatlah testing untuk masing-masing fitur
 
-- [ ] Read, perlu melakukan pengecekan pada status dan response ketika:
+- [x] Read, perlu melakukan pengecekan pada status dan response ketika:
 
-  - [ ] Berhasil mendapatkan data Entitas Utama
-  - [ ] Gagal menjalankan fitur karena belum login
-  - [ ] Gagal menjalankan fitur karena token yang diberikan tidak valid
+  - [x] Berhasil mendapatkan data Entitas Utama
+  - [x] Gagal menjalankan fitur karena belum login
+  - [x] Gagal menjalankan fitur karena token yang diberikan tidak valid
 
-- [ ] Read Detail, perlu melakukan pengecekan pada status dan response ketika:
+- [x] Read Detail, perlu melakukan pengecekan pada status dan response ketika:
 
-  - [ ] Berhasil mendapatkan 1 Entitas Utama sesuai dengan params id yang diberikan
-  - [ ] Gagal menjalankan fitur karena belum login
-  - [ ] Gagal menjalankan fitur karena token yang diberikan tidak valid
-  - [ ] Gagal mendapatkan Entitas Utama karena params id yang diberikan tidak ada di database / invalid
+  - [x] Berhasil mendapatkan 1 Entitas Utama sesuai dengan params id yang diberikan
+  - [x] Gagal menjalankan fitur karena belum login
+  - [x] Gagal menjalankan fitur karena token yang diberikan tidak valid
+  - [x] Gagal mendapatkan Entitas Utama karena params id yang diberikan tidak ada di database / invalid
 
-- [ ] Update PUT, perlu melakukan pengecekan pada status dan response ketika:
+- [x] Update PUT, perlu melakukan pengecekan pada status dan response ketika:
 
-  - [ ] Berhasil mengupdate data Entitas Utama berdasarkan params id yang diberikan
-  - [ ] Gagal menjalankan fitur karena belum login
-  - [ ] Gagal menjalankan fitur karena token yang diberikan tidak valid
-  - [ ] Gagal karena id entity yang dikirim tidak terdapat di database
-  - [ ] Gagal menjalankan fitur ketika Staff mengolah data entity yang bukan miliknya
-  - [ ] Gagal ketika request body yang diberikan tidak sesuai
+  - [x] Berhasil mengupdate data Entitas Utama berdasarkan params id yang diberikan
+  - [x] Gagal menjalankan fitur karena belum login
+  - [x] Gagal menjalankan fitur karena token yang diberikan tidak valid
+  - [x] Gagal karena id entity yang dikirim tidak terdapat di database
+  - [x] Gagal menjalankan fitur ketika Staff mengolah data entity yang bukan miliknya
+  - [x] Gagal ketika request body yang diberikan tidak sesuai
 
-- [ ] Delete, perlu melakukan pengecekan pada status dan response ketika:
+- [x] Delete, perlu melakukan pengecekan pada status dan response ketika:
 
-  - [ ] Berhasil menghapus data Entitas Utama berdasarkan params id yang diberikan
-  - [ ] Gagal menjalankan fitur karena belum login
-  - [ ] Gagal menjalankan fitur karena token yang diberikan tidak valid
-  - [ ] Gagal karena id entity yang dikirim tidak terdapat di database
-  - [ ] Gagal menjalankan fitur ketika Staff menghapus entity yang bukan miliknya
+  - [x] Berhasil menghapus data Entitas Utama berdasarkan params id yang diberikan
+  - [x] Gagal menjalankan fitur karena belum login
+  - [x] Gagal menjalankan fitur karena token yang diberikan tidak valid
+  - [x] Gagal karena id entity yang dikirim tidak terdapat di database
+  - [x] Gagal menjalankan fitur ketika Staff menghapus entity yang bukan miliknya
 
-- [ ] Update PATCH, perlu melakukan pengecekan pada status dan response ketika:
+- [x] Update PATCH, perlu melakukan pengecekan pada status dan response ketika:
 
-  - [ ] Berhasil mengupdate imgUrl Entitas Utama berdasarkan params id yang diberikan
-  - [ ] Gagal menjalankan fitur karena belum login
-  - [ ] Gagal menjalankan fitur karena token yang diberikan tidak valid
-  - [ ] Gaga menjalankan fiturl karena id entity yang dikirim tidak terdapat di database
-  - [ ] Gagal menjalankan fitur ketika Staff mengolah data entity yang bukan miliknya
-  - [ ] Gagal ketika request body yang diberikan tidak sesuai
+  - [x] Berhasil mengupdate imgUrl Entitas Utama berdasarkan params id yang diberikan
+  - [x] Gagal menjalankan fitur karena belum login
+  - [x] Gagal menjalankan fitur karena token yang diberikan tidak valid
+  - [x] Gaga menjalankan fiturl karena id entity yang dikirim tidak terdapat di database
+  - [x] Gagal menjalankan fitur ketika Staff mengolah data entity yang bukan miliknya
+  - [x] Gagal ketika request body yang diberikan tidak sesuai
 
-- [ ] Read Entitas kedua data genres/categories/types perlu melakukan pengecekan pada status dan response ketika:
+- [x] Read Entitas kedua data genres/categories/types perlu melakukan pengecekan pada status dan response ketika:
 
-  - [ ] Berhasil mendapatkan data entitas kedua
-  - [ ] Gagal menjalankan fitur karena belum login
-  - [ ] Gagal menjalankan fitur karena token yang diberikan tidak valid
+  - [x] Berhasil mendapatkan data entitas kedua
+  - [x] Gagal menjalankan fitur karena belum login
+  - [x] Gagal menjalankan fitur karena token yang diberikan tidak valid
 
-- [ ] Endpoint List pada public site, perlu melakukan pengecekan pada status dan response ketika:
+- [x] Endpoint List pada public site, perlu melakukan pengecekan pada status dan response ketika:
 
-  - [ ] Berhasil mendapatkan Entitas Utama tanpa menggunakan query filter parameter
-  - [ ] Berhasil mendapatkan Entitas Utama dengan 1 query filter parameter
-  - [ ] Berhasil mendapatkan Entitas Utama serta panjang yang sesuai ketika memberikan page tertentu (cek pagination-nya)
+  - [x] Berhasil mendapatkan Entitas Utama tanpa menggunakan query filter parameter
+  - [x] Berhasil mendapatkan Entitas Utama dengan 1 query filter parameter
+  - [x] Berhasil mendapatkan Entitas Utama serta panjang yang sesuai ketika memberikan page tertentu (cek pagination-nya)
   - Pastikan untuk testing ini sediakan dulu sekitar 20 data untuk diinput di beforeAll, sehingga kita bisa melakukan ekspektasi pada data dan jumlahnya yang kita dapat ketika filter dan pagination
 
-- [ ] Endpoint Detail pada public site, perlu melakukan pengecekan pada status dan response ketika:
-  - [ ] Berhasil mendapatkan 1 Entitas Utama sesuai dengan params id yang diberikan
-  - [ ] Gagal mendapatkan Entitas Utama karena params id yang diberikan tidak ada di database / invalid
+- [x] Endpoint Detail pada public site, perlu melakukan pengecekan pada status dan response ketika:
+  - [x] Berhasil mendapatkan 1 Entitas Utama sesuai dengan params id yang diberikan
+  - [x] Gagal mendapatkan Entitas Utama karena params id yang diberikan tidak ada di database / invalid
 
 ### **Sorting and Pagination, Filter**
 
 Mengimplementasikan sorting, pagination dan filter pada aplikasi server yang sudah dibuat
 
-- [ ] Get list entitas utama pada Public Site
-  - [ ] Search menggunakan title/name Entitas Utama
-  - [ ] Sorting berdasarkan data terbaru/terlama (ASC/DESC)
-  - [ ] Filter Entitas Utama berdasarkan Entitas Kedua (genres/categories/types)
-  - [ ] Pagination dengan limit data per page berjumlah 10
+- [x] Get list entitas utama pada Public Site
+  - [x] Search menggunakan title/name Entitas Utama
+  - [x] Sorting berdasarkan data terbaru/terlama (ASC/DESC)
+  - [x] Filter Entitas Utama berdasarkan Entitas Kedua (genres/categories/types)
+  - [x] Pagination dengan limit data per page berjumlah 10
 
 ## **W1D4 & W1D6**
 
