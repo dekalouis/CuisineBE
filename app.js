@@ -1,4 +1,8 @@
-require("dotenv").config();
+// require("dotenv").config();
+console.log({ env: process.env.NODE_ENV });
+if (process.env.NODE_ENV !== "production") {
+  require("dotenv").config();
+}
 // console.log(process.env);
 const express = require("express");
 
@@ -16,8 +20,8 @@ app.use(routes);
 // });
 
 //commented while testing
-// app.listen(port, () => {
-//   console.log(`Example app listening on port http://localhost:${port}`);
-// });
+app.listen(port, () => {
+  console.log(`Example app listening on port http://localhost:${port}`);
+});
 
 module.exports = app;
