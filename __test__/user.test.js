@@ -33,7 +33,7 @@ afterAll(async () => {
 //testingnya
 describe("POST /login (Admin)", () => {
   //todo sukses
-  test("POST /login", async () => {
+  test("POST /login successful", async () => {
     const response = await request(app).post("/login").send({
       email: "test@test.com",
       password: "testing",
@@ -45,7 +45,7 @@ describe("POST /login (Admin)", () => {
   });
 
   //todo no email
-  test("POST /login", async () => {
+  test("POST /login no email", async () => {
     const response = await request(app).post("/login").send({
       password: "testing",
     });
@@ -54,7 +54,7 @@ describe("POST /login (Admin)", () => {
   });
 
   //todo no password
-  test("POST /login", async () => {
+  test("POST /login no password", async () => {
     const response = await request(app).post("/login").send({
       email: "test@test.com",
     });
@@ -63,7 +63,7 @@ describe("POST /login (Admin)", () => {
   });
 
   //todo email invalid
-  test("POST /login", async () => {
+  test("POST /login wrong email", async () => {
     const response = await request(app).post("/login").send({
       email: "wrong@email.com",
       password: "testing",
@@ -76,7 +76,7 @@ describe("POST /login (Admin)", () => {
   });
 
   //todo password salah
-  test("POST /login", async () => {
+  test("POST /login wrong password", async () => {
     const response = await request(app).post("/login").send({
       email: "test@test.com",
       password: "wrongpassword",
