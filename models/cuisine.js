@@ -64,6 +64,14 @@ module.exports = (sequelize, DataTypes) => {
     {
       sequelize,
       modelName: "Cuisine",
+      hooks: {
+        beforeCreate: (instance) => {
+          if (!instance.imgUrl.startsWith("http")) {
+            instance.imgUrl =
+              "https://media.istockphoto.com/id/184276935/id/foto/piring-kosong-di-atas-putih.jpg?s=612x612&w=0&k=20&c=4kGZNaanO2bml02k99C2N00Fw4fjXiN176Xm5_GxbR8=";
+          }
+        },
+      },
     }
   );
   return Cuisine;
