@@ -78,6 +78,7 @@ class CuisineController {
             attributes: { exclude: ["password"] },
           },
         ],
+        order: [["updatedAt", "DESC"]],
       });
       //   console.log(cuisines);
       res.status(200).json(cuisines);
